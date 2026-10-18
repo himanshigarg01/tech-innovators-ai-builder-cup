@@ -1,0 +1,32 @@
+{
+    "VAPJPAS086739": [
+        {
+            "Claim Number": "VAPJPAS086739",
+            "Date": "2024-01-29",
+            "Adjuster Name": "Alice Kim",
+            "Note Type": "Initial Review",
+            "Note Text": "Claim received for review. City of Passaic vehicle allegedly sideswiped while on route.  Need to review police report and obtain statements from involved parties."
+        },
+        {
+            "Claim Number": "VAPJPAS086739",
+            "Date": "2024-02-01",
+            "Adjuster Name": "Alice Kim",
+            "Note Type": "Follow-Up",
+            "Note Text": "Police report obtained. Report confirms City vehicle was sideswiped by other vehicle attempting to pass. No citations issued.  Awaiting statements from both drivers."
+        },
+        {
+            "Claim Number": "VAPJPAS086739",
+            "Date": "2024-02-05",
+            "Adjuster Name": "Alice Kim",
+            "Note Type": "Follow-Up",
+            "Note Text": "Received and reviewed driver statements. City driver's statement aligns with police report.  Other driver claims City vehicle swerved, but this is not corroborated by the police report. No independent witnesses identified."
+        },
+        {
+            "Claim Number": "VAPJPAS086739",
+            "Date": "2024-02-08",
+            "Adjuster Name": "Alice Kim",
+            "Note Type": "Final Assessment",
+            "Note Text": "Based on the evidence, it appears the other driver was at fault for the accident. No damages reported by City driver. Claim closed."
+        }
+    ]
+}
