@@ -1,0 +1,35 @@
+steps:
+  # 1. Build the API Container
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Build API Backend'
+    args: 
+      - 'build'
+      - '-t'
+      - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/api:$COMMIT_SHA'
+      - '-t'
+      - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/api:latest'
+      - '-f'
+      - 'docker/Dockerfile.api'
+      - '.'
+
+  # 2. Build the Web Container
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Build Web Frontend'
+    args: 
+      - 'build'
+      - '-t'
+      - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/web:$COMMIT_SHA'
+      - '-t'
+      - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/web:latest'
+      - '-f'
+      - 'docker/Dockerfile.web'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_API_URL=http://localhost:8080' # Note: Update this later once you get your live API URL
+      - '.'
+
+# Push both built images to your Asia-South1 Artifact Registry
+images:
+  - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/api:$COMMIT_SHA'
+  - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/api:latest'
+  - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/web:$COMMIT_SHA'
+  - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/web:latest'
