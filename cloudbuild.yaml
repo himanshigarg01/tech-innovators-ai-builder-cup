@@ -10,7 +10,7 @@ steps:
       - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/api:latest'
       - '-f'
       - 'docker/Dockerfile.api'
-      - '.'
+      - '.' # Keep this as dot so it can see /backend and /sample_data
 
   # 2. Build the Web Container
   - name: 'gcr.io/cloud-builders/docker'
@@ -34,6 +34,5 @@ images:
   - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/web:$COMMIT_SHA'
   - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/web:latest'
 
-# FIX: Explicitly send build logs to Cloud Logging
 options:
   logging: CLOUD_LOGGING_ONLY
