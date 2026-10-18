@@ -24,7 +24,7 @@ steps:
       - '-f'
       - 'docker/Dockerfile.web'
       - '--build-arg'
-      - 'NEXT_PUBLIC_API_URL=http://localhost:8080'
+      - 'NEXT_PUBLIC_API_URL=https://api-backend-248061514312.asia-south1.run.app'
       - '.'
 
 # Push both built images to your specific Artifact Registry
