@@ -1,0 +1,36 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+
+# Env and secrets
+.env
+.env.local
+uploads/
+
+# Node
+node_modules/
+frontend/.next/
+frontend/out/
+.next/
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Thumbs.db
+
+# Build
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
