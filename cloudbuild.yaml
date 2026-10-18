@@ -5,9 +5,9 @@ steps:
     args: 
       - 'build'
       - '-t'
-      - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/api:$COMMIT_SHA'
+      - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/api:$COMMIT_SHA'
       - '-t'
-      - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/api:latest'
+      - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/api:latest'
       - '-f'
       - 'docker/Dockerfile.api'
       - '.'
@@ -18,18 +18,22 @@ steps:
     args: 
       - 'build'
       - '-t'
-      - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/web:$COMMIT_SHA'
+      - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/web:$COMMIT_SHA'
       - '-t'
-      - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/web:latest'
+      - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/web:latest'
       - '-f'
       - 'docker/Dockerfile.web'
       - '--build-arg'
-      - 'NEXT_PUBLIC_API_URL=http://localhost:8080' # Note: Update this later once you get your live API URL
+      - 'NEXT_PUBLIC_API_URL=http://localhost:8080'
       - '.'
 
-# Push both built images to your Asia-South1 Artifact Registry
+# Push both built images to your specific Artifact Registry
 images:
-  - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/api:$COMMIT_SHA'
-  - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/api:latest'
-  - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/web:$COMMIT_SHA'
-  - 'asia-south1-docker.pkg.dev/ai-builder/ai-apps/web:latest'
+  - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/api:$COMMIT_SHA'
+  - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/api:latest'
+  - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/web:$COMMIT_SHA'
+  - 'asia-south1-docker.pkg.dev/ai-builder-512015/ai-builder-repo/web:latest'
+
+# FIX: Explicitly send build logs to Cloud Logging
+options:
+  logging: CLOUD_LOGGING_ONLY
